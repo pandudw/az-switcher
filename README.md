@@ -1,1 +1,1 @@
-# az-tenant
+# az-switcher
