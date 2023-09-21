@@ -6,7 +6,8 @@ import (
     "os/exec"
 )
 
-// Fungsi untuk menampilkan daftar langganan
+var subscriptionSelected bool
+
 func listSubscriptions() {
     cmd := exec.Command("az", "account", "list", "--output", "table")
     cmd.Stdout = os.Stdout
@@ -14,12 +15,17 @@ func listSubscriptions() {
     cmd.Run()
 }
 
-// Fungsi untuk memilih langganan
 func selectSubscription(subscriptionID string) {
     cmd := exec.Command("az", "account", "set", "--subscription", subscriptionID)
     cmd.Stdout = os.Stdout
     cmd.Stderr = os.Stderr
-    cmd.Run()
+    err := cmd.Run()
+    if err != nil {
+        fmt.Printf("Failed to select subscription: %v\n", err)
+        return
+    }
+
+    subscriptionSelected = true
     fmt.Printf("Subscription has been changed to %s\n", subscriptionID)
 }
 
@@ -43,9 +49,16 @@ func main() {
             fmt.Print("Enter the ID of the subscription you want to select: ")
             fmt.Scanln(&subID)
             selectSubscription(subID)
+            if subscriptionSelected {
+                return 
+            }
         case "3":
             fmt.Println("Thank You!")
-            return
+            if subscriptionSelected {
+                return 
+            } else {
+                fmt.Println("Please select a subscription before exiting.")
+            }
         default:
             fmt.Println("Invalid choice.")
         }
