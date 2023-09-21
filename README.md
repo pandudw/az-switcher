@@ -1,1 +1,1 @@
-# az-switcher
+# azurectl
