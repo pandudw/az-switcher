@@ -1,26 +1,41 @@
-# azurectl
+# Azurectl
 
 Azurectl is a simple tool designed to streamline the management of Azure subscriptions, allowing users to switch between subscriptions easily and quickly.
 
-## Installation
+## Features
 
-Make sure you have [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and login, installed before using `azurectl`.
+- Display a list of Azure subscriptions.
+- Select a specific subscription to set it as the active subscription.
 
-```bash
-# Clone the repository
-git clone https://github.com/username/azurectl.git
+## Prerequisites
 
-# Navigate to the directory
-cd azurectl
+- [Go](https://go.dev/doc/install) installed on your machine.
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installed and configured.
 
-# Run the tool
-go run main.go
-```
+## Dependencies
+
+This project uses the following Go packages:
+- [cobra](https://github.com/spf13/cobra): A commander for modern Go CLI interactions.
 
 ## Usage
-After installing and running azurectl, you will see the main menu with several options. Choose the option that corresponds to the action you want to perform.
 
-- Display Subscription List:  
-Shows a list of Azure subscriptions.
-- Select a Subscription:  
-Displays the list of subscriptions and allows you to select the active subscription.
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/pandudw/azurectl.git
+   ```
+2. Change into the project directory:
+    ```
+    cd azurectl
+    ```
+3. Display the list of Azure subscriptions:
+    ```
+    go run main.go list
+    ```
+4. Select a specific subscription:
+    ```
+    go run main.go select [subs_id]
+    ```
+
+## Contributing
+Feel free to contribute to azurectl by opening issues or submitting pull requests. Your contributions are highly appreciated!
