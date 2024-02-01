@@ -9,7 +9,7 @@ import (
 var subscriptionSelected bool
 
 func listSubscriptions() {
-    cmd := exec.Command("az", "account", "list", "--output", "table")
+    cmd := exec.Command("az", "account", "list", "--output", "yaml")
     cmd.Stdout = os.Stdout
     cmd.Stderr = os.Stderr
     cmd.Run()
