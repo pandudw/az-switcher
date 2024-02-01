@@ -8,11 +8,16 @@ import (
 
 var subscriptionSelected bool
 
-func listSubscriptions() {
+func displaySubscriptions() {
     cmd := exec.Command("az", "account", "list", "--output", "yaml")
     cmd.Stdout = os.Stdout
     cmd.Stderr = os.Stderr
     cmd.Run()
+}
+
+func listSubscriptions() {
+	fmt.Println("Displaying subscription list:")
+	displaySubscriptions()
 }
 
 func selectSubscription(subscriptionID string) {
@@ -44,10 +49,12 @@ func main() {
         case "1":
             listSubscriptions()
         case "2":
-            listSubscriptions()
+            displaySubscriptions()
             var subID string
+            
             fmt.Print("Enter the ID of the subscription you want to select: ")
             fmt.Scanln(&subID)
+            
             selectSubscription(subID)
             if subscriptionSelected {
                 return 
