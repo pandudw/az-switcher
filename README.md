@@ -25,17 +25,24 @@ This project uses the following Go packages:
    git clone https://github.com/pandudw/azctl.git
    ```
 2. Change into the project directory:
-    ```
+   ```
     cd azctl
     ```
-3. Display the list of Azure subscriptions:
+3. Build binary file azctl and move to /usr/local/bin/:
     ```
-    go run main.go list
+    go build -o azctl main.go
+    sudo mv azctl /usr/local/bin/
+    export PATH=$PATH:/usr/local/bin
+    source ~/.bashrc
     ```
-4. Select a specific subscription:
+4. Display the list of Azure subscriptions:
     ```
-    go run main.go select [subs_id]
+    azctl list
+    ```
+5. Select a specific subscription:
+    ```
+    azctl select [subs_id]
     ```
 
 ## Contributing
-Feel free to contribute to azurectl by opening issues or submitting pull requests. Your contributions are highly appreciated!
+Feel free to contribute to azctl by opening issues or submitting pull requests. Your contributions are highly appreciated!
