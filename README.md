@@ -1,6 +1,6 @@
-# Azurectl
+# Azctl
 
-Azurectl is a simple tool designed to streamline the management of Azure subscriptions, allowing users to switch between subscriptions easily and quickly.
+Azctl is a simple tool designed to streamline the management of Azure subscriptions, allowing users to switch between subscriptions easily and quickly.
 
 ## Features
 
@@ -22,11 +22,11 @@ This project uses the following Go packages:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/pandudw/azurectl.git
+   git clone https://github.com/pandudw/azctl.git
    ```
 2. Change into the project directory:
     ```
-    cd azurectl
+    cd azctl
     ```
 3. Display the list of Azure subscriptions:
     ```
