@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  azclt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: azclt
+    tty: true
